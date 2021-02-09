@@ -10,7 +10,7 @@ describe('create', () => {
                 zipcode: '40202'
             };
             const output = user.create(input);
-            assert.deepEqual(output, { id:1, email: 'test@example.com', zipcode: '40202' });
+            assert.deepStrictEqual(output, { id:1, email: 'test@example.com', zipcode: '40202' });
         });
     });
     describe('when input contains no email', () => {
