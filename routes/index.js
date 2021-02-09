@@ -25,8 +25,18 @@ router.get('/api', (req, res) => {
  */
 
 router.post('/api', (req, res) => {
-    console.log(req.body);
-    res.send('hey there!');
+    const errors = [];
+    if (!req.body.email) {
+        errors.push('email is required');
+    }
+    if (req.body.zipcode && !(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(req.body.zipcode))) {
+        errors.push('zip code must be valid');
+    }
+    if (errors.length) {
+        return res.status(400).json({ errors })
+    }
+    
+    res.json(Object.assign({ id: 1}, req.body));
 });
 
 module.exports = router;
