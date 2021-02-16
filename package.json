@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha **/*.test.js"
+    "test": "mocha **/*.test.js",
+    "test-coverage": "nyc mocha **/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "express-swagger-generator": "^1.1.17"
+    "express-swagger-generator": "^1.1.17",
+    "nyc": "^15.1.0"
   }
 }
